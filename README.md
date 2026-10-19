@@ -25,6 +25,10 @@ Open-source, local-first Etsy research suite. It combines public-data workflows 
 4. Choose **Load unpacked** and select this repository folder.
 5. Pin **3SVerse Etsy Tools** and open its dashboard.
 
+## Offline mini toolkit
+
+Open [index.html](index.html) directly for the zero-permission, fully offline toolkit: heuristic keyword ideas, tag generator, detailed fee calculator, listing grader, and seasonal Trend Buzz. Use the Chrome extension for live public Etsy research, reports, tracking, and Ads CSV analysis.
+
 ## Research pipeline
 
 | Step | Action | Result |
