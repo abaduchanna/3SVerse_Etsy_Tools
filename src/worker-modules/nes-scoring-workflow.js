@@ -948,7 +948,7 @@ export async function runNesScoring(sheetsClient, config, log, seedKeyword, opts
   });
   const dateStr = new Date().toISOString().slice(0, 10);
   const partialSuffix = isPartial ? '_partial' : '';
-  const filename = `etsyhunt_${seedKeyword.replace(/[^a-z0-9]+/gi, '_')}_${dateStr}${partialSuffix}.html`;
+  const filename = `3sverse_etsy_tools_${seedKeyword.replace(/[^a-z0-9]+/gi, '_')}_${dateStr}${partialSuffix}.html`;
   await deliverReport(html, {
     filename,
     seedKeyword,

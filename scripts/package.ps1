@@ -1,5 +1,5 @@
-# Package EtsyHunt for Chrome Web Store upload.
-# Creates dist/etsyhunt-<version>.zip with only extension runtime files.
+# Package 3SVerse Etsy Tools for Chrome Web Store upload.
+# Creates dist/3sverse-etsy-tools-<version>.zip with only extension runtime files.
 
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
@@ -9,7 +9,7 @@ $manifest = Get-Content ".\manifest.json" -Raw | ConvertFrom-Json
 $version = $manifest.version
 $outDir = Join-Path $Root "dist"
 $stage = Join-Path $outDir "stage"
-$zipName = "etsyhunt-$version.zip"
+$zipName = "3sverse-etsy-tools-$version.zip"
 $zipPath = Join-Path $outDir $zipName
 
 if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }

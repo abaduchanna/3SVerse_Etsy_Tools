@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0 — 2026-10-19
+
+- Rebranded as **3SVerse Etsy Tools**
+- Added full research dashboard, product/shop tables, listing optimizer, tag generator, profit calculator, tracker, and CSV/JSON exports
+- Preserved local-first research pipeline and MIT upstream attribution
+
 ## 1.1.0 — 2026-09-07
 
 - **Stop & save report** — stopping a run finishes the current page, then generates a partial HTML report from collected data

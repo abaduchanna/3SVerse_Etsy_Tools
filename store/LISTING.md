@@ -1,26 +1,26 @@
-# Chrome Web Store listing — EtsyHunt
+# Chrome Web Store listing — 3SVerse Etsy Tools
 
 Use this copy when submitting at https://chrome.google.com/webstore/devconsole
 
 ## Privacy policy URL (required)
 
-**https://github.com/vtoxi/EtsyHunt/blob/main/PRIVACY.md**
+**https://github.com/abaduchanna/3SVerse_Etsy_Tools/blob/main/PRIVACY.md**
 
 Optional nicer URL (if you enable GitHub Pages on this repo, root `/`):
 
-**https://vtoxi.github.io/EtsyHunt/privacy.html**
+**https://github.com/abaduchanna/3SVerse_Etsy_Tools/blob/main/privacy.html**
 
 ## Listing fields
 
 ### Name
-EtsyHunt — Etsy Niche Research
+3SVerse Etsy Tools — Local Etsy Research
 
 ### Short description (≤132 characters)
 Free local Etsy niche research: find keywords, audit listings, and download scored niche reports.
 
 ### Detailed description
 
-EtsyHunt helps Etsy sellers research niches directly in Chrome — for free.
+3SVerse Etsy Tools helps Etsy sellers research niches directly in Chrome — for free.
 
 Run a 4-step pipeline from one seed keyword:
 
@@ -31,7 +31,7 @@ Run a 4-step pipeline from one seed keyword:
 
 Need to leave mid-run? Use **Stop & save report** to keep a partial report from whatever is already complete, or **Resume research** later from the last finished step.
 
-Everything is local-first. Your research data stays in your browser. No EtsyHunt account. No license key.
+Everything is local-first. Your research data stays in your browser. No 3SVerse account. No license key.
 
 Features:
 • Full pipeline or single-step runs
@@ -42,7 +42,7 @@ Features:
 • Resume research after stopping mid-run
 
 How to use:
-1. Install EtsyHunt and pin it
+1. Install 3SVerse Etsy Tools and pin it
 2. Enter a seed keyword (for example: tote bag)
 3. Choose product type
 4. Click Run full research
@@ -53,7 +53,7 @@ Notes:
 • Use a page delay of at least 7 seconds to avoid empty Etsy pages
 • Optional legacy mode can use eRank if you are logged into members.erank.com
 
-EtsyHunt is free and open source (MIT): https://github.com/vtoxi/EtsyHunt
+3SVerse Etsy Tools is free and open source (MIT): https://github.com/abaduchanna/3SVerse_Etsy_Tools
 
 ### Category
 Productivity (or Shopping)
@@ -81,7 +81,7 @@ Single purpose: Etsy niche research automation
 Helps Etsy sellers research niches by discovering keywords, capturing Etsy search and listing data, scoring opportunities, and downloading local HTML reports.
 
 ### Remote code use
-No. EtsyHunt does not use remote code. All JavaScript is packaged inside the extension. It does not download or execute scripts from the network. It only reads publicly visible page content on Etsy (and optionally eRank) during research runs the user starts, and stores results locally.
+No. 3SVerse Etsy Tools does not use remote code. All JavaScript is packaged inside the extension. It does not download or execute scripts from the network. It only reads publicly visible page content on Etsy (and optionally eRank) during research runs the user starts, and stores results locally.
 
 ### storage
 Stores the user’s settings, seed keywords, research results (keywords, listings, scores), and activity logs in chrome.storage.local on the user’s device so runs can continue and reports can be generated without a remote database.
@@ -104,7 +104,7 @@ https://www.etsy.com/* — Required to open Etsy search and listing pages and ex
 https://members.erank.com/* — Optional legacy keyword workflow only. Used when that mode is enabled and the user is already logged into eRank in Chrome.
 
 ### Certification checkbox
-Certify that your data usage complies with the Chrome Web Store Developer Program Policies (Limited Use). Check yes. EtsyHunt does not sell user data and does not use research data for advertising.
+Certify that your data usage complies with the Chrome Web Store Developer Program Policies (Limited Use). Check yes. 3SVerse Etsy Tools does not sell user data and does not use research data for advertising.
 
 ## Permission justifications (same text as above, split by field)
 

@@ -44,7 +44,7 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = report.filename || 'etsyhunt_report.html';
+    a.download = report.filename || '3sverse_etsy_tools_report.html';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

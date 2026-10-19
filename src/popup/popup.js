@@ -81,6 +81,10 @@ function setCtaLabel(text) {
 document.addEventListener('DOMContentLoaded', async () => {
   const $ = id => document.getElementById(id);
 
+  $('btn-open-dashboard')?.addEventListener('click', () => {
+    chrome.tabs.create({ url: chrome.runtime.getURL('src/dashboard/dashboard.html') });
+  });
+
   // Local "I just clicked Start" flag — prevents the double-click race where
   // refreshUI() runs ~1s after the click but the service worker hasn't yet
   // flipped runState.running to true, so the buttons would briefly re-enable
@@ -802,7 +806,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
-          a.download = lastReport.filename || 'etsyhunt_report.html';
+          a.download = lastReport.filename || '3sverse_etsy_tools_report.html';
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
@@ -841,7 +845,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const stamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `etsyhunt-logs-${stamp}.json`;
+      a.download = `3sverse-etsy-tools-logs-${stamp}.json`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

@@ -353,7 +353,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         try {
           await chrome.downloads.download({
             url,
-            filename: lastReport.filename || 'etsyhunt_report.html',
+            filename: lastReport.filename || '3sverse_etsy_tools_report.html',
             saveAs: false,
           });
           sendResponse({ ok: true });
@@ -410,6 +410,13 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
             results.push(`${table}: error (${e.message})`);
           }
         }
+        await chrome.storage.local.remove([
+          'lastReport',
+          'reportHistory',
+          'runHistory',
+          'pipelineCheckpoint'
+        ]);
+        await saveRunState({ running: false, currentStep: null, progress: '', logs: [] });
         console.log('[ENR] Data clear results:', results.join(', '));
         sendResponse({ success: true, tablesCleared: tablesToClear.length, rowsCleared: totalCleared, details: results });
       } catch (e) {

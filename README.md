@@ -1,84 +1,57 @@
-# EtsyHunt
+# 3SVerse Etsy Tools
 
-Free Chrome extension for Etsy niche research. Discover keywords, capture search snapshots, audit listings, and generate scored HTML reports — all from your browser. No account. No license. Data stays on your device.
+Open-source, local-first Etsy research suite. It combines public-data workflows commonly found in Alura, eRank, and EHunt without copying their source code, branding, private APIs, or proprietary datasets.
 
-**Privacy policy:** https://github.com/vtoxi/EtsyHunt/blob/main/PRIVACY.md
+## Included tools
 
-## Features
+- Keyword discovery, Etsy search snapshots, listing audits, and opportunity reports
+- Product and shop research tables
+- Listing title, description, and 13-tag optimizer
+- Etsy-compatible tag generator
+- Profit, fee, cost, and margin calculator
+- Local competitor tracker
+- Transparent sales/revenue estimator from review velocity
+- Etsy Ads CSV import, conversion-gap analysis, and ROAS
+- Reverse listing-to-keyword lookup over captured research
+- JSON and CSV export
+- Optional logged-in eRank workflow for data the user is authorized to view
+- Full dashboard plus compact extension popup
 
-- **4-step pipeline** — keyword discovery → Etsy snapshots → listing audit → niche scoring
-- **Local-first** — research data is stored in Chrome storage on your machine
-- **HTML reports** — downloadable GO / NO-GO niche reports
-- **Configurable** — keywords per run, delays, beatable-shop thresholds, and more
-- **Free & open source** — use it, fork it, improve it
+## Install
 
-## Install (developer / sideload)
+1. Download or clone this repository.
+2. Open `chrome://extensions` in Chrome, Edge, Brave, or another Chromium browser.
+3. Enable **Developer mode**.
+4. Choose **Load unpacked** and select this repository folder.
+5. Pin **3SVerse Etsy Tools** and open its dashboard.
 
-1. Download or clone this repository
-2. Open Chrome and go to `chrome://extensions`
-3. Turn on **Developer mode**
-4. Click **Load unpacked** and select this folder
-5. Pin **EtsyHunt** to your toolbar
+## Research pipeline
 
-## Package for Chrome Web Store
+| Step | Action | Result |
+|---|---|---|
+| 1 | Discover | Related phrases from public Etsy suggestions |
+| 2 | Capture | Public Etsy search-result snapshots |
+| 3 | Audit | Listing and shop signals visible to the user |
+| 4 | Score | Evidence-based opportunity report |
+
+The extension stores research in `chrome.storage.local`. It has no 3SVerse account requirement, license check, analytics, or remote code. See [PRIVACY.md](PRIVACY.md).
+
+## Data accuracy
+
+Public page values are captured as displayed. Estimates are labeled as estimates. Exact commercial-tool search volume, click, ad, and historical databases are not fabricated. Optional eRank fields appear only when the user runs the authorized logged-in workflow and those values are visible in their account.
+
+## Package
 
 ```powershell
 .\scripts\package.ps1
 ```
 
-Upload the ZIP from `dist/` in the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole).
+The release ZIP is created in `dist/`.
 
-Full listing copy, permission justifications, and privacy checklist: [`store/LISTING.md`](store/LISTING.md).
+## Clean-room record
 
-## Quick start
-
-1. Open the extension popup
-2. Enter a seed keyword (e.g. `tote bag`, `wedding invite`)
-3. Choose product type: Digital / Physical / Any
-4. Click **Run full research**
-5. When finished, an HTML report downloads automatically
-
-You can also run any of the four steps individually.
-
-## Pipeline
-
-| Step | Name | What it does |
-|------|------|--------------|
-| 1 | Discover | Finds related keywords from Etsy suggestions |
-| 2 | Capture | Snapshots top search results for each keyword |
-| 3 | Audit | Opens listings and reads sales / social-proof signals |
-| 4 | Score | Grades keywords and builds a niche report |
-
-## Settings
-
-Open **Advanced settings** in the popup:
-
-| Setting | Default | Notes |
-|---------|---------|--------|
-| Keywords / run | 20 | Searched and audited |
-| Page delay | 7 sec | Minimum 7 — Etsy rate-limits faster crawling |
-| Listings / keyword | 12 | Audit depth (12–16 recommended) |
-| Beatable reviews | 300 | Shops under this count count as beatable |
-| Min beatable slots | 3 | Per keyword |
-| Min keywords gate | 5 | Stop early if Step 1 finds too few |
-
-## Privacy
-
-EtsyHunt does not require login to a third-party dashboard. Pipeline data (keywords, listings, audits, scores) lives in `chrome.storage.local`. Clearing extension data or uninstalling removes it. Use **Export** in the activity log to back up run history as JSON.
-
-Full policy: [PRIVACY.md](PRIVACY.md) · [privacy.html](privacy.html)
-
-## Troubleshooting
-
-**Service worker shows (Inactive)**  
-Normal for Manifest V3 when idle. It wakes when you open the popup or start a run.
-
-**Empty Etsy results**  
-Increase page delay to 7+ seconds.
-
-**Pipeline stops mid-run**  
-Check the activity log and use **Copy** / **Export** to save details.
+Feature research, license boundaries, and REA evidence identifiers are documented in [docs/CLEAN_ROOM_RESEARCH.md](docs/CLEAN_ROOM_RESEARCH.md). It also records the independent feature mapping from EtsyHunt, etsy-oracle, etsy-scout, and etsy-keyword-tool. Upstream attribution is preserved in [NOTICE](NOTICE).
 
 ## License
 
-MIT — free for personal and commercial use.
+MIT. See [LICENSE](LICENSE). Alura, eRank, EHunt, and Etsy remain trademarks of their respective owners. This project is independent and not endorsed by them.

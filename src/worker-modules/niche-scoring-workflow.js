@@ -428,7 +428,7 @@ export async function runNicheScoring(sheetsClient, config, log, seedKeyword, op
         underlyingVerdict,
       });
       const partialSuffix = isPartial ? '_partial' : '';
-      const filename = `etsyhunt_${seedKeyword.replace(/\s+/g, '_')}_${now.split('T')[0]}${partialSuffix}.html`;
+      const filename = `3sverse_etsy_tools_${seedKeyword.replace(/\s+/g, '_')}_${now.split('T')[0]}${partialSuffix}.html`;
       await deliverReport(html, {
         filename,
         seedKeyword,
@@ -1681,7 +1681,7 @@ export async function runInsufficientKeywordsReport(sheetsClient, config, log, s
   }
 
   const html = generateInsufficientKeywordsReport(seedKeyword, seed, reportKeywords, opts);
-  const filename = `etsyhunt_${seedKeyword.replace(/\s+/g, '_')}_${now.split('T')[0]}_NOGO.html`;
+  const filename = `3sverse_etsy_tools_${seedKeyword.replace(/\s+/g, '_')}_${now.split('T')[0]}_NOGO.html`;
 
   await deliverReport(html, {
     filename,
@@ -1760,7 +1760,7 @@ export async function runPartialKeywordReport(sheetsClient, config, log, seedKey
   }
 
   const html = generatePartialKeywordReport(seedKeyword, seed, reportKeywords, opts);
-  const filename = `etsyhunt_${seedKeyword.replace(/\s+/g, '_')}_${now.split('T')[0]}_partial.html`;
+  const filename = `3sverse_etsy_tools_${seedKeyword.replace(/\s+/g, '_')}_${now.split('T')[0]}_partial.html`;
   await deliverReport(html, {
     filename,
     seedKeyword,

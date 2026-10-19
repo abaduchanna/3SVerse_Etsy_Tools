@@ -1,4 +1,4 @@
-/* EtsyHunt — professional extension popup */
+/* 3SVerse Etsy Tools — extension popup */
 
 :root {
   --ink: #14110f;
@@ -169,6 +169,12 @@ body {
 
 .content > * {
   flex-shrink: 0;
+}
+
+.dashboard-launch {
+  width: 100%;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #172554, #1d4ed8);
 }
 
 /* ── Mode visibility ─────────────────────────────────────── */

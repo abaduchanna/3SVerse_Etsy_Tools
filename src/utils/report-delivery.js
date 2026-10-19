@@ -28,7 +28,7 @@ export async function deliverReport(html, meta, log) {
     html: storeHtml ? rawHtml : '',
     htmlStored: storeHtml,
     htmlBytes,
-    filename: meta.filename || `etsyhunt_report_${Date.now()}.html`,
+    filename: meta.filename || `3sverse_etsy_tools_report_${Date.now()}.html`,
     seedKeyword: meta.seedKeyword || '',
     verdict: meta.verdict || '',
     generatedAt: meta.generatedAt || new Date().toISOString(),
@@ -78,7 +78,7 @@ export async function deliverReport(html, meta, log) {
     }
   } catch (e) {
     if (log) {
-      log('warn', `Auto-download failed (${e.message}) — open or download the report from the EtsyHunt popup`);
+      log('warn', `Auto-download failed (${e.message}) — open or download the report from the 3SVerse Etsy Tools popup`);
     }
   }
 

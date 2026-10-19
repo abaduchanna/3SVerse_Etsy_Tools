@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3SVerse Etsy Tools</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="mark">3S</span><div><strong>3SVerse</strong><small>Etsy Tools</small></div></div>
+    <nav id="nav">
+      <button class="active" data-view="overview">Overview</button>
+      <button data-view="keywords">Keyword Research</button>
+      <button data-view="products">Product Research</button>
+      <button data-view="shops">Shop Research</button>
+      <button data-view="optimizer">Listing Optimizer</button>
+      <button data-view="tags">Tag Generator</button>
+      <button data-view="profit">Profit Calculator</button>
+      <button data-view="estimator">Sales Estimator</button>
+      <button data-view="ads">Ads Analyzer</button>
+      <button data-view="tracker">Competitor Tracker</button>
+      <button data-view="data">Data & Export</button>
+    </nav>
+    <div class="legal">Local-first · MIT<br>No proprietary datasets</div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div><h1 id="page-title">Overview</h1><p id="page-subtitle">Your Etsy research workspace</p></div>
+      <div class="status"><i id="status-dot"></i><span id="status-text">Ready</span></div>
+    </header>
+
+    <section class="view active" id="view-overview">
+      <div class="metrics">
+        <article><span>Keywords</span><strong id="m-keywords">0</strong><small>researched locally</small></article>
+        <article><span>Products</span><strong id="m-products">0</strong><small>captured listings</small></article>
+        <article><span>Shops</span><strong id="m-shops">0</strong><small>competitors found</small></article>
+        <article><span>Audits</span><strong id="m-audits">0</strong><small>listing checks</small></article>
+      </div>
+      <div class="grid two">
+        <article class="card hero-card">
+          <div class="eyebrow">Research pipeline</div>
+          <h2>Find demand before you create.</h2>
+          <p>Discover keywords, capture Etsy results, audit listings, and generate a scored opportunity report.</p>
+          <form id="quick-research" class="inline-form">
+            <input id="quick-seed" required placeholder="e.g. wedding invitation">
+            <button>Run research</button>
+          </form>
+          <div id="run-progress" class="progress" hidden><i></i><span></span></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><h2>Latest report</h2><button id="open-report" class="link-btn">Open</button></div>
+          <div id="latest-report" class="empty">No report yet.</div>
+        </article>
+      </div>
+      <article class="card"><div class="card-head"><h2>Recent activity</h2><button id="refresh-all" class="link-btn">Refresh</button></div><div id="recent-log" class="activity empty">No activity yet.</div></article>
+    </section>
+
+    <section class="view" id="view-keywords">
+      <article class="card">
+        <div class="card-head"><div><h2>Keyword Research</h2><p>Demand, competition, clicks, CTR, trends, and related terms when available.</p></div></div>
+        <form id="keyword-form" class="toolbar"><input id="keyword-seed" required placeholder="Enter a seed keyword"><select id="product-type"><option value="any">Any product</option><option value="digital">Digital</option><option value="physical">Physical</option></select><button>Start full research</button></form>
+      </article>
+      <article class="card table-card"><div class="card-head"><h2>Saved keywords</h2><input class="table-filter" data-table="keywords-table" placeholder="Filter"></div><div class="table-wrap"><table id="keywords-table"><thead><tr><th>Keyword</th><th>Searches</th><th>Clicks</th><th>CTR</th><th>Competition</th><th>Score</th><th></th></tr></thead><tbody></tbody></table></div></article>
+    </section>
+
+    <section class="view" id="view-products">
+      <article class="card"><div class="card-head"><div><h2>Reverse Listing Lookup</h2><p>Find saved keywords connected to a listing ID or Etsy URL.</p></div></div><form id="reverse-form" class="toolbar"><input id="reverse-listing" required placeholder="Listing ID or Etsy listing URL"><button>Look up</button></form><div id="reverse-results" class="lookup-result empty">Run research first, then enter a captured listing.</div></article>
+      <article class="card table-card"><div class="card-head"><div><h2>Product Research</h2><p>Captured Etsy listings with public market signals.</p></div><input class="table-filter" data-table="products-table" placeholder="Filter products"></div><div class="table-wrap"><table id="products-table"><thead><tr><th>Product</th><th>Price</th><th>Reviews</th><th>Rating</th><th>Favorites</th><th>Shop</th><th>Rank</th></tr></thead><tbody></tbody></table></div></article>
+    </section>
+
+    <section class="view" id="view-shops">
+      <article class="card table-card"><div class="card-head"><div><h2>Shop Research</h2><p>Compare seller size, social proof, and captured listing activity.</p></div><input class="table-filter" data-table="shops-table" placeholder="Filter shops"></div><div class="table-wrap"><table id="shops-table"><thead><tr><th>Shop</th><th>Sales</th><th>Reviews</th><th>Rating</th><th>Listings</th><th>Country</th></tr></thead><tbody></tbody></table></div></article>
+    </section>
+
+    <section class="view" id="view-optimizer">
+      <div class="grid two">
+        <article class="card">
+          <h2>Listing Optimizer</h2><p>Audit title, description, tags, readability, and Etsy limits.</p>
+          <form id="optimizer-form" class="stack">
+            <label>Title <span id="title-count">0/140</span><input id="listing-title" maxlength="140" placeholder="Your Etsy listing title"></label>
+            <label>Description <span id="description-count">0</span><textarea id="listing-description" rows="8" placeholder="Describe the product, benefits, size, delivery, and use"></textarea></label>
+            <label>Tags <span>comma separated</span><textarea id="listing-tags" rows="4" placeholder="gift for her, custom necklace, ..."></textarea></label>
+            <button>Audit listing</button>
+          </form>
+        </article>
+        <article class="card"><h2>Optimization score</h2><div class="score-ring" id="optimization-score">0</div><div id="optimization-findings" class="findings empty">Enter listing content and run the audit.</div></article>
+      </div>
+    </section>
+
+    <section class="view" id="view-tags">
+      <div class="grid two">
+        <article class="card"><h2>13-tag Generator</h2><p>Creates Etsy-compatible tags. Every tag stays within 20 characters.</p><form id="tag-form" class="stack"><label>Core phrase<input id="tag-seed" required placeholder="personalized necklace"></label><label>Audience<input id="tag-audience" placeholder="mom, wife, bridesmaid"></label><label>Style or occasion<input id="tag-style" placeholder="minimalist, wedding, birthday"></label><button>Generate tags</button></form></article>
+        <article class="card"><div class="card-head"><h2>Generated tags</h2><button id="copy-tags" class="link-btn">Copy all</button></div><div id="tag-results" class="tag-cloud empty">No tags generated.</div></article>
+      </div>
+    </section>
+
+    <section class="view" id="view-profit">
+      <div class="grid two">
+        <article class="card"><h2>Profit Calculator</h2><form id="profit-form" class="stack compact"><label>Sale price<input id="sale-price" type="number" min="0" step="0.01" value="25"></label><label>Materials / production<input id="material-cost" type="number" min="0" step="0.01" value="5"></label><label>Shipping paid by seller<input id="shipping-cost" type="number" min="0" step="0.01" value="0"></label><label>Ad cost<input id="ad-cost" type="number" min="0" step="0.01" value="0"></label><label>Payment fee %<input id="payment-rate" type="number" min="0" step="0.1" value="3"></label><button>Calculate</button></form></article>
+        <article class="card"><h2>Estimated outcome</h2><div class="profit-total" id="net-profit">$0.00</div><div id="profit-breakdown" class="breakdown"></div><p class="note">Estimate uses configurable fees. Verify current Etsy fees for your country.</p></article>
+      </div>
+    </section>
+
+    <section class="view" id="view-estimator">
+      <div class="grid two">
+        <article class="card"><h2>Transparent Sales Estimator</h2><p>Directional estimate from public review velocity. Etsy does not expose exact listing sales.</p><form id="estimator-form" class="stack compact"><label>Listing price<input id="estimate-price" type="number" min="0" step="0.01" value="25"></label><label>Recent reviews<input id="estimate-reviews" type="number" min="0" step="1" value="5"></label><label>Review period (days)<input id="estimate-days" type="number" min="1" step="1" value="30"></label><label>Sales per review multiplier<input id="estimate-multiplier" type="number" min="1" step="0.5" value="10"></label><button>Estimate</button></form></article>
+        <article class="card"><h2>Estimated monthly result</h2><div class="estimate-grid"><div><span>Sales</span><strong id="estimated-sales">0</strong></div><div><span>Revenue</span><strong id="estimated-revenue">$0.00</strong></div></div><div id="estimate-formula" class="formula"></div><p class="note">Estimate, not actual Etsy sales. Calibrate the multiplier against your own shop data.</p></article>
+      </div>
+    </section>
+
+    <section class="view" id="view-ads">
+      <article class="card"><div class="card-head"><div><h2>Etsy Ads CSV Analyzer</h2><p>Import your own Etsy Ads search-term report. Processing stays local.</p></div></div><div class="toolbar"><input id="ads-file" type="file" accept=".csv,text/csv"><button id="clear-ads" class="secondary" type="button">Clear ads data</button></div></article>
+      <div class="metrics ads-metrics"><article><span>Impressions</span><strong id="ads-impressions">0</strong><small>imported</small></article><article><span>Clicks</span><strong id="ads-clicks">0</strong><small>imported</small></article><article><span>Orders</span><strong id="ads-orders">0</strong><small>attributed</small></article><article><span>Spend</span><strong id="ads-spend">$0.00</strong><small>imported</small></article></div>
+      <article class="card table-card"><div class="card-head"><div><h2>Search terms and gaps</h2><p>Gap = impressions or clicks with zero orders.</p></div><input class="table-filter" data-table="ads-table" placeholder="Filter terms"></div><div class="table-wrap"><table id="ads-table"><thead><tr><th>Search term</th><th>Impressions</th><th>Clicks</th><th>Orders</th><th>Spend</th><th>Revenue</th><th>ROAS</th><th>Status</th></tr></thead><tbody></tbody></table></div></article>
+    </section>
+
+    <section class="view" id="view-tracker">
+      <article class="card"><div class="card-head"><div><h2>Competitor Tracker</h2><p>Save shops or listing URLs locally and add snapshots over time.</p></div></div><form id="tracker-form" class="toolbar"><input id="tracker-name" required placeholder="Shop or listing name"><input id="tracker-url" required type="url" placeholder="https://www.etsy.com/..."><button>Add tracker</button></form></article>
+      <article class="card table-card"><div class="table-wrap"><table id="tracker-table"><thead><tr><th>Name</th><th>URL</th><th>Added</th><th>Snapshots</th><th>Latest signal</th><th></th></tr></thead><tbody></tbody></table></div></article>
+    </section>
+
+    <section class="view" id="view-data">
+      <div class="grid two"><article class="card"><h2>Export</h2><p>Download all locally stored research, reports, trackers, and settings.</p><div class="button-row"><button id="export-json">Export JSON</button><button id="export-products" class="secondary">Products CSV</button><button id="export-keywords" class="secondary">Keywords CSV</button></div></article><article class="card danger"><h2>Local data</h2><p>Clearing cannot be undone. Export first.</p><button id="clear-data" class="danger-btn">Clear research data</button></article></div>
+      <article class="card"><h2>Data coverage</h2><p>Results use public Etsy pages, optional logged-in eRank workflow, and user-entered data. Proprietary search-volume, ad, and historical databases from commercial tools are not included.</p></article>
+    </section>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

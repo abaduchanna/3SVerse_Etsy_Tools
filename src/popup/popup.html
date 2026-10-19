@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>EtsyHunt</title>
+  <title>3SVerse Etsy Tools</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
@@ -17,8 +17,8 @@
           </svg>
         </div>
         <div>
-          <div class="brand-name">EtsyHunt</div>
-          <div class="brand-sub">Free · Local niche research</div>
+          <div class="brand-name">3SVerse Etsy Tools</div>
+          <div class="brand-sub">Open-source Etsy intelligence</div>
         </div>
       </div>
       <div class="status-pill" id="status-pill">
@@ -28,6 +28,7 @@
     </header>
 
     <main class="content">
+      <button id="btn-open-dashboard" class="btn btn-dark dashboard-launch" type="button">Open full Etsy dashboard</button>
       <!-- Result hero: report + resume (status-first) -->
       <section class="panel result-hero" id="result-hero" hidden>
         <div class="result-hero-head">
@@ -66,7 +67,7 @@
         <button id="btn-stop" class="btn btn-stop" type="button">Stop</button>
 
         <div id="stop-sheet" class="stop-sheet" hidden>
-          <p class="stop-sheet-msg"><strong>Stop research?</strong> EtsyHunt will finish the current page, then save a partial report from whatever is complete.</p>
+          <p class="stop-sheet-msg"><strong>Stop research?</strong> 3SVerse Etsy Tools will finish the current page, then save a partial report from whatever is complete.</p>
           <div class="stop-sheet-btns">
             <button id="btn-stop-report" class="btn btn-sm btn-dark" type="button">Stop &amp; save report</button>
             <button id="btn-stop-discard" class="btn btn-sm btn-ghost" type="button">Stop without report</button>
@@ -248,8 +249,8 @@
     </main>
 
     <footer class="ft">
-      <span class="ft-left">Free &amp; open source · data stays on your device</span>
-      <span id="ext-version" class="ft-ver">v1.1.0</span>
+      <span class="ft-left">MIT · local-first · 3SVerse</span>
+      <span id="ext-version" class="ft-ver">v2.0.0</span>
       <span id="last-run" class="ft-right"></span>
     </footer>
   </div>
