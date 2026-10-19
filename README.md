@@ -56,6 +56,11 @@ The release ZIP is created in `dist/`.
 
 Feature research, license boundaries, and REA evidence identifiers are documented in [docs/CLEAN_ROOM_RESEARCH.md](docs/CLEAN_ROOM_RESEARCH.md). It also records the independent feature mapping from EtsyHunt, etsy-oracle, etsy-scout, and etsy-keyword-tool. Upstream attribution is preserved in [NOTICE](NOTICE).
 
-## License
+## License & Attribution
 
-MIT. See [LICENSE](LICENSE). Alura, eRank, EHunt, and Etsy remain trademarks of their respective owners. This project is independent and not endorsed by them.
+The whole project is released under the MIT License — see [LICENSE](LICENSE). The LICENSE file preserves **both** copyright notices, as the MIT license requires:
+
+- **Offline mini toolkit** (`index.html`, `styles.css`, `app.js`, `extra.js`) — original 3SVerse work, written from scratch for this project. Copyright (c) 2026 3SVerse contributors.
+- **Research extension** (`src/`, `docs/`, `store/`, `scripts/`, `manifest.json`) — built on [vtoxi/EtsyHunt](https://github.com/vtoxi/EtsyHunt) (MIT license verified) and modified for 3SVerse. The upstream notice `Copyright (c) 2026 EtsyHunt contributors` is retained in [LICENSE](LICENSE), and upstream attribution with repository link lives in [NOTICE](NOTICE).
+
+You may use, modify, and redistribute both parts under MIT, provided the LICENSE notices accompany copies or substantial portions. Alura, eRank, EHunt, and Etsy remain trademarks of their respective owners. This project is independent and not endorsed by them.
