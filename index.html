@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3SVerse Etsy Tools — Free Open-Source Etsy Seller Toolkit</title>
+<meta name="description" content="Free open-source Etsy toolkit: keyword research, tag generator, fee calculator, listing grader, trend buzz. 100% client-side, MIT license.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="logo">3S</div>
+    <div class="brand-txt">
+      <span class="brand-sub">3SVERSE</span>
+      <h1>Etsy Tools</h1>
+    </div>
+  </div>
+  <div class="chips">
+    <span class="chip c-acc">v1.0.0</span>
+    <span class="chip">MIT</span>
+    <span class="chip">100% offline</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab on" data-panel="p-kw">Keyword Research</button>
+  <button class="tab" data-panel="p-tags">Tag Generator</button>
+  <button class="tab" data-panel="p-fees">Fee Calculator</button>
+  <button class="tab" data-panel="p-grade">Listing Grader</button>
+  <button class="tab" data-panel="p-buzz">Trend Buzz</button>
+</nav>
+
+<main>
+
+  <!-- ============ KEYWORD RESEARCH ============ -->
+  <section class="panel on" id="p-kw">
+    <div class="card">
+      <h2>Keyword Research</h2>
+      <p class="lead">Ek seed keyword se 60+ long-tail ideas — audience, occasion, style aur category formats ke combos. Har idea per competition / demand / opportunity ka heuristic score.</p>
+      <div class="row">
+        <input id="kwSeed" type="text" placeholder="Seed keyword likho — e.g. cat lover gift" class="grow">
+        <select id="kwCat">
+          <option value="auto">Category: Auto</option>
+          <option value="jewelry">Jewelry</option>
+          <option value="wall-art">Wall Art</option>
+          <option value="apparel">Apparel</option>
+          <option value="digital">Digital / SVG</option>
+          <option value="stickers">Stickers &amp; Decals</option>
+          <option value="mugs">Mugs &amp; Drinkware</option>
+          <option value="home">Home &amp; Living</option>
+        </select>
+        <button id="kwGo" class="btn">Generate</button>
+        <button id="kwExport" class="btn ghost" disabled>Export CSV</button>
+      </div>
+      <div id="kwOut" class="out"></div>
+      <p class="note">Scores local heuristics hain (relative comparison ke liye) — live Etsy search data nahi.</p>
+    </div>
+  </section>
+
+  <!-- ============ TAG GENERATOR ============ -->
+  <section class="panel" id="p-tags">
+    <div class="card">
+      <h2>Tag Generator</h2>
+      <p class="lead">Listing title paste karo — 13 ranked tags milenge, sab 20-char limit ke andar, char counter ke sath. Chip pe click = remove.</p>
+      <textarea id="tagInput" rows="3" placeholder="e.g. Personalized Cat Mom Mug, Custom Pet Photo Coffee Cup, Gift for Cat Lovers"></textarea>
+      <div class="row">
+        <button id="tagGo" class="btn">Generate 13 tags</button>
+        <button id="tagFill" class="btn ghost">Fill suggestions</button>
+        <button id="tagCopy" class="btn ghost">Copy tags</button>
+        <span id="tagCount" class="muted">0/13</span>
+      </div>
+      <div id="tagChips" class="chips-box"></div>
+      <p class="note">Ranking heuristic hai: 2-3 word phrases, sweet-spot length (8-16 chars), buyer-intent words prefer hote hain.</p>
+    </div>
+  </section>
+
+  <!-- ============ FEE CALCULATOR ============ -->
+  <section class="panel" id="p-fees">
+    <div class="card">
+      <h2>Fee &amp; Profit Calculator</h2>
+      <p class="lead">2026 Etsy fee model: $0.20 listing, 6.5% transaction, region-based processing, Offsite Ads 12%/15%. Sab fields editable.</p>
+      <div class="grid4">
+        <label>Item price ($) <input id="fPrice" type="number" step="0.01" value="25"></label>
+        <label>Shipping charged ($) <input id="fShip" type="number" step="0.01" value="0"></label>
+        <label>Item cost ($) <input id="fCost" type="number" step="0.01" value="8"></label>
+        <label>Shipping cost ($) <input id="fShipCost" type="number" step="0.01" value="4.50"></label>
+        <label>Processing region
+          <select id="fRegion">
+            <option value="us">US — 3% + $0.25</option>
+            <option value="uk">UK — 4% + $0.20</option>
+            <option value="de">DE — 4% + $0.30</option>
+            <option value="au">AU — 4% + $0.30</option>
+            <option value="ca">CA — 3% + $0.25</option>
+            <option value="custom">Custom...</option>
+          </select>
+        </label>
+        <label>Offsite Ads
+          <select id="fAds">
+            <option value="off">Off / no ad sale</option>
+            <option value="a12">12% (over $10k/yr)</option>
+            <option value="a15">15% (under $10k/yr)</option>
+          </select>
+        </label>
+        <label id="fPctWrap" class="hidden">Custom % <input id="fPct" type="number" step="0.1" value="3"></label>
+        <label id="fFlatWrap" class="hidden">Custom flat ($) <input id="fFlat" type="number" step="0.01" value="0.25"></label>
+      </div>
+      <label class="check"><input id="fListed" type="checkbox"> Listing fee already paid ($0.20 skip)</label>
+      <div class="row"><button id="feeGo" class="btn">Calculate</button></div>
+      <div id="feeOut" class="out"></div>
+      <p class="note">Verify current numbers at etsy.com/seller-fees — policy change ho sakta hai.</p>
+    </div>
+  </section>
+
+  <!-- ============ LISTING GRADER ============ -->
+  <section class="panel" id="p-grade">
+    <div class="card">
+      <h2>Listing Grader</h2>
+      <p class="lead">Title + tags paste karo — 8 weighted checks, 0-100 score. Har check ke sath actionable tip.</p>
+      <input id="gTitle" type="text" placeholder="Full listing title paste karo...">
+      <textarea id="gTags" rows="4" placeholder="13 tags — ek per line ya comma separated"></textarea>
+      <div class="row"><button id="gGo" class="btn">Grade listing</button></div>
+      <div class="grade-wrap">
+        <div class="ring" id="gradeRing"><div class="ring-in"><span id="gradeScore">--</span><small>/100</small></div></div>
+        <div id="gradeChecks" class="checks"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TREND BUZZ ============ -->
+  <section class="panel" id="p-buzz">
+    <div class="card">
+      <h2>Trend Buzz</h2>
+      <p class="lead">12 tak keywords — seasonal timing (aaj ki date ke hisab se) + buyer-intent modifiers ka buzz score, bars ke sath.</p>
+      <textarea id="bKw" rows="6" placeholder="One keyword per line&#10;christmas gift for mom&#10;personalized dog ornament&#10;svg bundle digital download"></textarea>
+      <div class="row"><button id="bGo" class="btn">Score trends</button></div>
+      <div id="buzzOut" class="out"></div>
+      <p class="note">Seasonality aaj ki date se check hoti hai — ye heuristic estimate hai, live trend feed nahi.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>3SVerse Etsy Tools</strong> — original open-source toolkit, MIT License.
+  Etsy, Alura, eRank aur EHunt/EtsyHunt ke sath koi affiliation nahi — na unka code, data ya assets use hua hai, na ye unka copy hai.</p>
+  <p>Sab estimates aapke browser me locally compute hote hain — koi data bahar nahi jata, koi tracking nahi.</p>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script src="app.js"></script>
+<script src="extra.js"></script>
+</body>
+</html>
